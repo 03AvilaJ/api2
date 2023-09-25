@@ -25,7 +25,7 @@ public class SumControler {
     private String status = "AVAILABLE";
     private BigInteger valueInitial;
     private BigInteger valueEnd;
-    public static final String PATH = "resultados.txt";
+    public static final String PATH = "data/resultados.txt";
     private final Thread periodicThread = new Thread(this::periodicStatus);
     private final Thread periodicTask = new Thread(this::periodicTask);
 
@@ -141,7 +141,7 @@ public class SumControler {
                 // Ahora puedes usar los valores obtenidos en tu código
 
                 // Limpiar el contenido del archivo resultados.txt
-                try (FileWriter fileWriter = new FileWriter("resultados.txt", false)) {
+                try (FileWriter fileWriter = new FileWriter(PATH, false)) {
                     // Este uso de FileWriter con el segundo argumento 'false' sobrescribe el contenido existente
                     fileWriter.write("");
                 } catch (IOException e) {
@@ -181,7 +181,7 @@ public class SumControler {
         valueInitial = new BigInteger(jsonObject.get("valueInitial").getAsString());
         valueEnd = new BigInteger(jsonObject.get("valueEnd").getAsString());
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("resultados.txt",true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(PATH,true))) {
             writer.write(valueInitial + "," + valueEnd + "," + valueInitial + "," + 0 + "," + 0 + "," + 0 + "," + 0);
             writer.newLine();
         } catch (IOException e) {

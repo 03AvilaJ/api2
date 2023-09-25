@@ -10,7 +10,7 @@ public class Sum extends Thread {
     private BigInteger valueInitial; // Cambiar a BigInteger
     private BigInteger valueEnd; // Cambiar a BigInteger
     private BigInteger resultSum; // Cambiar a BigInteger
-    public static final String PATH = "resultados.txt";
+    public static final String PATH = "data/resultados.txt";
 
     private long hours;
     private long minutes;
@@ -51,7 +51,7 @@ public class Sum extends Thread {
 
     public void run() {
         try {
-            BufferedWriter writer = new BufferedWriter(new FileWriter("resultados.txt", true)); // El 'true' indica que se agregará al archivo existente
+            BufferedWriter writer = new BufferedWriter(new FileWriter(PATH, true)); // El 'true' indica que se agregará al archivo existente
             long startTime = System.currentTimeMillis();
 
             for (BigInteger i = valueInitial; i.compareTo(valueEnd) <= 0; i = i.add(BigInteger.ONE)) {
