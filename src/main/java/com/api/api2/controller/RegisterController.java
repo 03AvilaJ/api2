@@ -15,8 +15,8 @@ import java.math.BigInteger; // Importa la clase BigInteger
 @RestController
 public class RegisterController {
 
-    private static final String OWNER = "Emerson1";
-    private static final String TOKEN = "202021852";
+    private static final String OWNER = "Johana";
+    private static final String TOKEN = "202010076";
 
     @GetMapping("/register")
     public String register(){
@@ -167,7 +167,7 @@ public class RegisterController {
     public String getOneOwner(){
         String responseBody = "";
         try {
-            URL url = new URL("https://distri01.max-paloma-babbie.xyz/Master/task/Emerson");
+            URL url = new URL("https://distri01.max-paloma-babbie.xyz/Master/task/Johana");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
             // Configura el método de solicitud como POST

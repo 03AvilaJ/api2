@@ -18,22 +18,21 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
 @RestController
-public class SumControler {
+public class SumController {
 
-    private static final String OWNER = "Johana";
-    private static final String TOKEN = "202010076";
+    /*private static final String OWNER = "Emerson1";
+    private static final String TOKEN = "202021852";
     private String status = "AVAILABLE";
     private BigInteger valueInitial;
     private BigInteger valueEnd;
-    public static final String PATH = "data/resultados.txt";
+    public static final String PATH = "resultados.txt";
     private final Thread periodicThread = new Thread(this::periodicStatus);
     private final Thread periodicTask = new Thread(this::periodicTask);
 
     public SumControler() {
         periodicThread.start();
-        periodicTask.start();
+        //periodicTask.start();
     }
-
 
     @GetMapping("/task/personal")
     public String getNumbers() {
@@ -89,7 +88,6 @@ public class SumControler {
         return responseBody;
     }
 
-
     @GetMapping("/task/result")
     public String showResult() {
 
@@ -141,7 +139,7 @@ public class SumControler {
                 // Ahora puedes usar los valores obtenidos en tu código
 
                 // Limpiar el contenido del archivo resultados.txt
-                try (FileWriter fileWriter = new FileWriter(PATH, false)) {
+                try (FileWriter fileWriter = new FileWriter("resultados.txt", false)) {
                     // Este uso de FileWriter con el segundo argumento 'false' sobrescribe el contenido existente
                     fileWriter.write("");
                 } catch (IOException e) {
@@ -181,7 +179,7 @@ public class SumControler {
         valueInitial = new BigInteger(jsonObject.get("valueInitial").getAsString());
         valueEnd = new BigInteger(jsonObject.get("valueEnd").getAsString());
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(PATH,true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("resultados.txt",true))) {
             writer.write(valueInitial + "," + valueEnd + "," + valueInitial + "," + 0 + "," + 0 + "," + 0 + "," + 0);
             writer.newLine();
         } catch (IOException e) {
@@ -220,11 +218,10 @@ public class SumControler {
     public void periodicTask() {
         while (true) {
             try {
-                Thread.sleep(10 * 1000);
-                if(status.compareToIgnoreCase("AVAILABLE")==0){
-                    getNumbers();
-                }else{
+                if(status.compareToIgnoreCase("WORKING")==0){
                     Thread.sleep(120 * 1000);
+                }else{
+                    getNumbers();
                 }
 
             } catch (InterruptedException e) {
@@ -294,5 +291,5 @@ public class SumControler {
             System.err.println("Error al leer el archivo: " + e.getMessage());
         }
         return text;
-    }
+    }*/
 }
