@@ -96,7 +96,7 @@ public class SumControler {
         String responseBody = "";
         String jsonInputString = "";
         try {
-            URL url = new URL("https://distri01.max-paloma-babbie.xyz/Master/task/result");
+            URL url = new URL("https://distri01.max-paloma-babbie.xyz/Master/task/resultado");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
             connection.setRequestMethod("POST");
