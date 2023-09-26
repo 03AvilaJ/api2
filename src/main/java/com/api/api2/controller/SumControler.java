@@ -40,11 +40,11 @@ public class SumControler {
         status = "WORKING";
         String responseBody = "";
         try {
-            URL url = new URL("https://distri01.max-paloma-babbie.xyz/Master/task/personal");
+            URL url = new URL("https://distri01.max-paloma-babbie.xyz/Master/task/Johana");
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
             // Configura el método de solicitud como POST
-            connection.setRequestMethod("POST");
+            connection.setRequestMethod("GET");
 
             // Configura el encabezado "Content-Type" como "application/json"
             connection.setRequestProperty("Content-Type", "application/json");
@@ -59,10 +59,10 @@ public class SumControler {
             String jsonInputString = "{\r\n  \"valueInitial\": \"" + numInitial + "\",\r\n  \"valueEnd\": \"" + numFinal + "\" ,\r\n  \"token\": \"" + TOKEN + "\",\r\n  \"owner\": \"" + OWNER + "\"\r\n}";
 
             // Escribe el cuerpo de la solicitud en el flujo de salida
-            try (OutputStream os = connection.getOutputStream()) {
+           /* try (OutputStream os = connection.getOutputStream()) {
                 byte[] input = jsonInputString.getBytes("utf-8");
                 os.write(input, 0, input.length);
-            }
+            }*/
 
             int responseCode = connection.getResponseCode();
 
